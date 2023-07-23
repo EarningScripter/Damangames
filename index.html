@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacker Terminal - Random Text Generator</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #1c1c1c;
+      color: #0F0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .terminal {
+      border: 2px solid #0F0;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 400px;
+      text-align: center;
+      background-color: #2b2b2b;
+    }
+
+    .random-text {
+      font-size: 24px;
+      margin-bottom: 20px;
+      animation: blink 1s infinite;
+    }
+
+    .input-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .input-bar {
+      width: 200px;
+      padding: 5px;
+      margin-right: 10px;
+      background-color: #1c1c1c;
+      color: #0F0;
+      border: 1px solid #0F0;
+      border-radius: 3px;
+    }
+
+    .btn {
+      padding: 5px 10px;
+      font-size: 16px;
+      background-color: #00f;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background-color 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #007;
+    }
+
+    .link-btn {
+      padding: 5px 10px;
+      font-size: 16px;
+      background-color: #00f;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 3px;
+      text-decoration: none;
+      margin-right: 10px;
+      transition: background-color 0.2s;
+    }
+
+    .link-btn:hover {
+      background-color: #007;
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <div class="random-text" id="randomText">Press "Run" to generate random text.</div>
+    <div class="input-container">
+      <input type="text" class="input-bar" id="periodInput" placeholder="Enter Period Number">
+      <button class="btn" onclick="generateRandomText()">Run</button>
+    </div>
+    <a class="link-btn" href="https://t.me/EarningScripter1" target="_blank">Join Telegram</a>
+  </div>
+
+  <script>
+    function generateRandomText() {
+      const periodInput = document.getElementById('periodInput');
+      const randomTextElement = document.getElementById('randomText');
+      const texts = ['Dragon', 'Tiger'];
+      const periodNumber = periodInput.value.trim();
+
+      if (periodNumber === '') {
+        randomTextElement.innerHTML = "Please enter a valid Period Number.";
+        return;
+      }
+
+      const randomIndex = Math.floor(Math.random() * texts.length);
+      const randomText = texts[randomIndex];
+      randomTextElement.innerHTML = `Period ${periodNumber}: ${randomText}`;
+    }
+  </script>
+</body>
+</html>
